@@ -1,0 +1,3 @@
+# Kohana Elastic Search module
+
+
