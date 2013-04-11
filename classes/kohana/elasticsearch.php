@@ -46,8 +46,8 @@ class Kohana_Elasticsearch{
     return json_decode($result);
   }
 
-  function count($type){
-    return $this->fetch($type . '/_count', 'GET', '{ matchAll:{} }');
+  function count($type, $data = false){
+    return $this->fetch($type . '/_count', 'GET', ($data) ? $data : '{ matchAll:{} }');
   }
 
   function status(){
