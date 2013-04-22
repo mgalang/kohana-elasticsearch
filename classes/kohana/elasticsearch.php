@@ -66,6 +66,10 @@ class Kohana_Elasticsearch{
     $this->fetch($type . '/' . $id, 'DELETE');
   }
 
+  function deleteall($type){
+    $this->fetch($type, 'DELETE');
+  }
+
   function update($type, $id, $data){
     $this->fetch($type . '/' . $id . '/_update', 'POST', $data);
   }
@@ -75,7 +79,7 @@ class Kohana_Elasticsearch{
   }
 
   function search($type, $query = array()){
-    return $this->fetch($type . '/_search', 'GET', $query);
+    return $this->fetch($type . '/_search', 'POST', $query);
   }
 }
 
