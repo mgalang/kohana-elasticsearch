@@ -54,10 +54,6 @@ class Kohana_Elasticsearch{
     return $this->fetch('_status');
   }
 
-  function create(){
-    $this->fetch(NULL, 'PUT');
-  }
-
   function add($type, $id, $data){
     return $this->fetch($type . '/' . $id, 'PUT', $data);
   }
