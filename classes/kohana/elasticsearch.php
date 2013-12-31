@@ -23,7 +23,7 @@ class Kohana_Elasticsearch{
     $this->port = $port;
   }
 
-  function fetch($path, $method = 'GET', $content = array()){
+  private function request($path, $method = 'GET', $content = array()){
     // create url
     $url = $this->host .'/'. $this->index . '/' . $path;
 
@@ -47,35 +47,34 @@ class Kohana_Elasticsearch{
   }
 
   function count($type, $data = false){
-    return $this->fetch($type . '/_count', 'GET', ($data) ? $data : '{ matchAll:{} }');
+    return $this->request($type . '/_count', 'GET', ($data) ? $data : '{ matchAll:{} }');
   }
 
   function status(){
-    return $this->fetch('_status');
+    return $this->request('_status');
   }
 
   function add($type, $id, $data){
-    return $this->fetch($type . '/' . $id, 'PUT', $data);
+    return $this->request($type . '/' . $id, 'PUT', $data);
   }
 
   function delete($type, $id){
-    $this->fetch($type . '/' . $id, 'DELETE');
+    $this->request($type . '/' . $id, 'DELETE');
   }
 
   function deleteall($type){
-    $this->fetch($type, 'DELETE');
+    $this->request($type, 'DELETE');
   }
 
   function update($type, $id, $data){
-    $this->fetch($type . '/' . $id . '/_update', 'POST', $data);
+    $this->request($type . '/' . $id . '/_update', 'POST', $data);
   }
 
   function mapping($type, $data){
-    return $this->fetch($type . '/_mapping', 'PUT', $data);
+    return $this->request($type . '/_mapping', 'PUT', $data);
   }
 
   function search($type, $query = array()){
-    return $this->fetch($type . '/_search', 'POST', $query);
+    return $this->request($type . '/_search', 'POST', $query);
   }
 }
-
