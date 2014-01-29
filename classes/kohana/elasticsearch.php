@@ -8,16 +8,16 @@ class Kohana_Elasticsearch{
 
   private static $instance;
 
-  public static function instance(){
+  public static function instance($index = null){
     if(!self::$instance){
       $config = Kohana::$config->load('elasticsearch');
-      return self::$instance = new self($config->get('host'), $config->get('port'), $config->get('index'));
+      return self::$instance = new self($config->get('host'), $config->get('port'), isset($index) ? $index : $config->get('index'));
     } else {
       return self::$instance;
     }
   }
 
-  private function __construct($host, $port, $index = 'kohana'){
+  private function __construct($host, $port, $index){
     $this->index = $index;
     $this->host = $host;
     $this->port = $port;
