@@ -1,4 +1,4 @@
-# Kohana Elastic Search module
+# Kohana Elasticsearch module
 A simple kohana [Elasticsearch](http://www.elasticsearch.org/) module
 
 ## Usage
@@ -13,4 +13,4 @@ A simple kohana [Elasticsearch](http://www.elasticsearch.org/) module
   
   Copy the configuration file from `config/elasticsearch.php` to your application's config directory.
 
-Alpha version - Use at your own risk
+(Development version)
