@@ -13,4 +13,4 @@ A simple kohana [Elasticsearch](http://www.elasticsearch.org/) module
   
   Copy the configuration file from `config/elasticsearch.php` to your application's config directory.
 
-(Development version)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/mgalang/kohana-elasticsearch/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
